@@ -1,0 +1,1 @@
+import { githubUser } from "./pages/githubUser";
