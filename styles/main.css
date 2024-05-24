@@ -1,30 +1,100 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    font-size: 62.5%;
+  font-size: 62.5%;
 
-    --ff-primary: 'Roboto', sans-serif;
-    --ff-secondary: 'Roboto Mono', monospace;
-    --text-color: #E1E1E6;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Roboto Mono", monospace;
+  --text-color: #e1e1e6;
 
-    --hue: 194;
-    --primary-color: hsl(var(--hue), 72%, 13%);
-    --secondary-color: rgba(6, 22, 27, 0.5);
-    --tertiary-color: hsl(192, 65%, 7%);
+  --primary-color: #000;
+  --secondary-color: #092d38;
+  --tertiary-color: #fff;
 
-    --input-bg-color: hsl(191, 65%, 7%);
-    --input-color: #7C7C8A;
-    --dark-blue: hsl(195, 91%, 25%);
-    --light-blue: hsl(191, 31%, 42%);
-    --no-favs-bg-color: hsl(192, 63%, 3%);
-    --no-favs-color: #4E5455;
+  --input-bg-color: #06181c;
+  --input-color: #7c7c8a;
+  --dark-blue: #065d7a;
+  --light-blue: #4a808c;
+  --no-favs-bg-color: #030b0c;
+  --no-favs-color: #4e5455;
+}
+body *{
+    font-size: 1.6rem;
+}
+body {
+  color: var(--text-color);
+  background-color: var(--primary-color);
 }
 
-body {
-    color: var(--text-color);
-    background-color: #000000;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 293.719px;
+  margin-top: 115px;
+}
+.gitfav {
+  width: 186px;
+  height: 32px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.search input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.45rem 1.6rem;
+
+  width: 32.08vw;
+  background-color: var(--input-bg-color);
+  color: var(--input-color);
+}
+
+.buttonFav{
+    background-color: var(--dark-blue);
+
+
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1.2rem 3.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    transition: all .7s ease;
+
+
+}
+.search button svg {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.search button:hover {
+    background-color: #e2c5c5;
+    color: var(--dark-blue);
+
+    transition: all .7s ease;
+}
+.search button:hover svg path {
+    fill: var(--dark-blue);
+    transition: all .7s ease;
 }
