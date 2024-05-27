@@ -24,6 +24,8 @@
 }
 body *{
     font-size: 1.6rem;
+    font-family: var(--ff-primary);
+
 }
 body {
   color: var(--text-color);
@@ -33,7 +35,11 @@ body {
     height: 80vh;
 
 }
-
+#app {
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
 .header {
   display: flex;
@@ -41,6 +47,8 @@ body {
   align-items: flex-end;
   gap: 293.719px;
   margin-top: 115px;
+  margin-bottom: 2.5rem;
+
 }
 .gitfav {
   width: 186px;
@@ -52,12 +60,15 @@ body {
   gap: 12px;
 }
 
-label {
+
+
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
+  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
@@ -103,9 +114,102 @@ label {
     transition: all .7s ease;
 }
 
+.table{
+  border: 1px solid var(--light-blue);;
+  border-radius: 1.2rem;
+  overflow: hidden;
 
+  max-height: 68.8rem;
+  overflow-y: overlay;
+ 
 
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+table *{
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+table tr:nth-child(even) {
+  background-color: hsl(192, 65%, 7%);
+
+  border-top: 1px solid var(--light-blue);
+  border-bottom: 1px solid var(--light-blue);
+}
+
+.table th{
+  background-color: rgba(6, 22, 27, 0.50);;
+    text-align: left;
+    padding: 1.6rem 4rem;
+}
+table th:first-child {
+  width: 35vw;
+}
+
+.table::-webkit-scrollbar {
+  width: 2.2rem;
+}
+.table::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 1rem;
+
+  border: .8rem solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+table td {
+  padding: 2.4rem 4rem;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+td.user img{
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+table td {
+  padding: 2.4rem 4rem;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+td.user img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+td.user a {
+  text-decoration: none;
+}
+
+td.user a p {
+  font-weight: bold;
+}
+
+td .remove {
+  background: none;
+  border: none;
+  color: red;
+}
 
 .stateHide{
    display: flex;
@@ -137,8 +241,8 @@ label {
   display: none;
 }
 .footerfav{
-    color: #fff;
 
+    color: #fff;
     line-height: 30px;
     margin-top: 60px;
     text-align: center;

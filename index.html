@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   
     <title>GitFav</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="./styles/main.css">
@@ -24,7 +25,7 @@
     <img  class="gitfav" src="./assests/Gitfav.svg" alt="">
 </div>
 <div class="search">
-<label for="input-search">Escribe el Github username que quieras favoritar</label> 
+<label class="sr-only"  for="input-search">Escribe el Github username que quieras favoritar</label> 
 <input id="input-search" type="text" placeholder="Digite el GitHub username">
 <button class="buttonFav"><img src="./assests/star-white.svg" alt="estrella"> FAVORITAR</button>
 
@@ -32,16 +33,48 @@
 </header>
 
 <main class="mainContainer">
-    <table class="tabble">
+    <table class="table">
         <thead>
             <tr>
                 <th>Usuario</th>
-                <th>Repositorio</th>
+                <th>Repositorios</th>
                 <th>Seguidores</th>
                 <th>Excluir</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody><tr>
+            <td class="user">
+                <img src="https://Github.com/SuelenGalhardo.png" alt="">
+                <a href="https://github.com/SuelenGalhardo" target="_blank">
+                    <p> SuelenGalhardo
+                        
+                    </p>
+                    <span>SuelenGalhardo
+                            
+                    </span>
+                </a>
+            </td>
+            <td class="Repositories">35</td>
+            <td class="flollowers">22</td>
+            <td><button class="remove">&times;</button></td>
+        </tr>
+        <tr>
+            <td class="user">
+                <img src="https://Github.com/SuelenGalhardo.png" alt="">
+                <a href="https://github.com/SuelenGalhardo" target="_blank">
+                    <p> SuelenGalhardo
+                        
+                    </p>
+                    <span>SuelenGalhardo
+                            
+                    </span>
+                </a>
+            </td>
+            <td class="Repositories">35</td>
+            <td class="flollowers">22</td>
+            <td><button class="remove">&times;</button></td>
+        </tr>
+    </tbody>
     </table>
 
     <div class="stateHide">
