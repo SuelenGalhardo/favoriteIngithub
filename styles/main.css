@@ -36,9 +36,9 @@ body {
 
 }
 #app {
-  padding: 2rem;
-  max-width: 500px;
   margin: 0 auto;
+  width: clamp(55rem, 80rem + 10vw, 112rem);
+  padding: 11.5rem 5rem 0;
 }
 
 .header {
@@ -121,13 +121,17 @@ body {
 
   max-height: 68.8rem;
   overflow-y: overlay;
- 
+  margin-top: 50px;
+
 
 }
 
 table {
+  font-size: 1.8rem;
   width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 0 2rem var(--light-blue);
+  
 
 }
 table *{
@@ -136,20 +140,33 @@ table *{
   color: var(--text-color);
 }
 
+table tbody tr {
+  border: 1px solid  hsl(191, 31%, 42%);
+}
+tbody tr:nth-child(odd) {
+  background-color: hsl(0, 0%, 0%);
+}
 table tr:nth-child(even) {
   background-color: hsl(192, 65%, 7%);
 
-  border-top: 1px solid var(--light-blue);
-  border-bottom: 1px solid var(--light-blue);
-}
 
+
+}
+thead {
+  background: var(--secondary-color);
+  border-collapse: collapse;
+}
 .table th{
   background-color: rgba(6, 22, 27, 0.50);;
     text-align: left;
-    padding: 1.6rem 4rem;
+    padding: 1.5rem;
 }
 table th:first-child {
-  width: 35vw;
+  border-top-left-radius: .4rem;
+}
+
+table th:last-child {
+  border-top-right-radius: .4rem;
 }
 
 .table::-webkit-scrollbar {
@@ -163,7 +180,8 @@ table th:first-child {
   background-clip: padding-box;
 }
 table td {
-  padding: 2.4rem 4rem;
+  padding: 1.5rem;
+  text-align: left;
 }
 
 td.user {
@@ -184,11 +202,6 @@ table td {
   padding: 2.4rem 4rem;
 }
 
-td.user {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
 td.user img {
   width: 5rem;
