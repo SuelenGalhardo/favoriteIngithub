@@ -29,6 +29,10 @@ body {
   color: var(--text-color);
   background-color: var(--primary-color);
 }
+.mainContainer{
+    height: 80vh;
+
+}
 
 
 .header {
@@ -97,4 +101,51 @@ label {
 .search button:hover svg path {
     fill: var(--dark-blue);
     transition: all .7s ease;
+}
+
+
+
+
+
+.stateHide{
+   display: flex;
+  background-color: var(--no-favs-bg-color);
+  color: var(--no-favs-color);
+}
+.noFav{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+
+  margin: 21rem auto 28.7rem;
+}
+
+.noFav img{
+  width: 13.2rem;
+  height: 12.5rem;
+}
+
+.noFav h2{
+  font-size: 4rem;
+    line-height: 2.5rem;
+    color: var(--no-favs-color);
+
+}
+.hide{
+  display: none;
+}
+.footerfav{
+    color: #fff;
+
+    line-height: 30px;
+    margin-top: 60px;
+    text-align: center;
+    padding: 45px;
+}
+.footerfav a {
+    color: #fff;
+    text-decoration: none;
+
 }

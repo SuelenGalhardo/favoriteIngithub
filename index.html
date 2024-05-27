@@ -24,31 +24,32 @@
     <img  class="gitfav" src="./assests/Gitfav.svg" alt="">
 </div>
 <div class="search">
-<label for="input-search">Digite el Github username que quieres favoritar</label> 
+<label for="input-search">Escribe el Github username que quieras favoritar</label> 
 <input id="input-search" type="text" placeholder="Digite el GitHub username">
 <button class="buttonFav"><img src="./assests/star-white.svg" alt="estrella"> FAVORITAR</button>
 
 </div>
 </header>
 
-<main>
-    <table>
+<main class="mainContainer">
+    <table class="tabble">
         <thead>
             <tr>
-                <th>Usuário</th>
+                <th>Usuario</th>
                 <th>Repositorio</th>
                 <th>Seguidores</th>
-                <th>Remover</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
 
-    <div>
-        <div>
-
+    <div class="stateHide">
+        <div class="noFav hide">
+          <img src="./assests/Estrela (1).svg" alt="">
+          <h2>Aún no hay favoritos</h2>
         </div>
-        <h2>Nenhum favorito ainda</h2>
+      
     </div>
 </main>
 
