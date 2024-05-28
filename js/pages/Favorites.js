@@ -6,23 +6,23 @@ export class Favorites {
     this.load();
   }
   load() {
-    this.entries  = [
-      {
-        login: "suelengalhardo",
-        name: "SuelenGalhardo",
-        public_repos: 35,
-        followers: 22,
-      },
-      {
-        login: "suelengalhardo",
-        name: "SuelenGalhardo",
-        public_repos: 35,
-        followers: 22,
-      },
-    ];
-   
+    const entries = JSON.parse(localStorage.getItem('@github-favorites')) || [];
+    console.log(entries);
+    this.entries = []
   }
+
+  //Higher-oder functions (map, filter, find, recude, remove)
+  delete(user) {
+  
+    const filteredEntries = this.entries
+    .filter(entry => entry.login !== user.login )
+
+     this.entries = filteredEntries;
+     this.update();
 }
+}
+
+//esta funcion se encarga de renderizar los eventos del html
 
 export class FavoritesView extends Favorites {
   constructor(root) {
@@ -35,21 +35,31 @@ export class FavoritesView extends Favorites {
     this.removeAll();
 
     this.entries.forEach((user) => {
-     const row = this.createRow();
-     //console.log(row)
+      const row = this.createRow();
+      //console.log(row)
 
-     row.querySelector('.user img').setAttribute('src', `https://github.com/${user.login}.png`)
-     row.querySelector('.user img').setAttribute('alt', `${user.name}`)
-     row.querySelector('.user span').textContent = user.name.login;
+      row
+        .querySelector(".user img")
+        .setAttribute("src", `https://github.com/${user.login}.png`);
+      row.querySelector(".user img").setAttribute("alt", `${user.name}`);
+      row.querySelector(".user span").textContent = user.name.login;
 
-     row.querySelector('.user a').setAttribute('href', `https://github.com/${user.login}`)
-     row.querySelector('.user p').textContent= user.name
-     row.querySelector('.Repositories').textContent= user.public_repos
-     row.querySelector('.followers').textContent= user.followers
+      row
+        .querySelector(".user a")
+        .setAttribute("href", `https://github.com/${user.login}`);
+      row.querySelector(".user p").textContent = user.name;
+      row.querySelector(".Repositories").textContent = user.public_repos;
+      row.querySelector(".followers").textContent = user.followers;
 
-     this.tbody.append(row)
+      row.querySelector(".remove").addEventListener("click", () => {
+        const isOk = confirm("seguro que desea eliminar este usuario?");
+        if (isOk) {
+          this.delete(user);
+        }
+      });
+
+      this.tbody.append(row);
     });
-    
   }
 
   createRow() {
@@ -79,8 +89,6 @@ export class FavoritesView extends Favorites {
   }
 
   removeAll() {
-    
-
     this.tbody.querySelectorAll("tr").forEach((tr) => {
       tr.remove();
     });
