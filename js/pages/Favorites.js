@@ -32,6 +32,7 @@ export class GithubUser {
 
 export class Favorites {
   constructor(root) {
+
     this.root = document.querySelector(root);
     this.load();
 
@@ -39,9 +40,37 @@ export class Favorites {
     .then(user => console.log(user));
   }
   load() {
-    const entries = JSON.parse(localStorage.getItem('@github-favorites')) || [];
-    console.log(entries);
-    this.entries = []
+    const entries = JSON.parse(localStorage.getItem('@github-favorites:')) || [];
+    this.entries = entries;
+
+   
+  }
+
+  save() {
+    localStorage.setItem('@github-favorites:', JSON.stringify(this.entries));
+  }
+
+  async add(username){
+    
+    try {
+        const user = await GithubUser.search(username);
+
+        if(user.login === undefined) {
+          throw new Error('El usuario ya está en favoritos');
+        }
+        this.entries = [user, ...this.entries]
+        this.update();
+        this.save();
+
+
+    }catch(error) {
+      alert(error.message)
+
+
+    }
+
+  
+
   }
 
   //Higher-oder functions (map, filter, find, recude, remove)
@@ -52,6 +81,7 @@ export class Favorites {
 
      this.entries = filteredEntries;
      this.update();
+     this.save();
 }
 }
 
@@ -61,7 +91,20 @@ export class FavoritesView extends Favorites {
   constructor(root) {
     super(root);
     this.tbody = this.root.querySelector("table tbody");
+
+
     this.update();
+    this.onadd();
+
+  }
+
+  onadd(){
+    const addButton = this.root.querySelector(".buttonFav");
+    addButton.onclick = () =>{
+        const {value}= this.root.querySelector(".js__inputFav");
+        this.add(value);
+    }
+
   }
 
   update() {
